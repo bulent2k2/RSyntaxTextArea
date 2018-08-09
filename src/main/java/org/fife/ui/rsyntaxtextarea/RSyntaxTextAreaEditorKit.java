@@ -2033,6 +2033,7 @@ public class RSyntaxTextAreaEditorKit extends RTextAreaEditorKit {
 				Element elem = map.getElement(i);
 				int start = elem.getStartOffset();
 				String t = doc.getText(start, elem.getEndOffset()-start-1);
+				t = t.trim(); // lalit: tackle Kojo format/toggle-comment issue
 				if (!t.startsWith(startEnd[0]) ||
 						(startEnd[1]!=null && !t.endsWith(startEnd[1]))) {
 					doAdd = true;
@@ -2054,6 +2055,10 @@ public class RSyntaxTextAreaEditorKit extends RTextAreaEditorKit {
 				}
 			}
 			else {
+				// lalit: tackle Kojo format/toggle-comment issue
+				while (!doc.getText(start, startEnd[0].length()).equals(startEnd[0])) {
+					start++;
+				}
 				doc.remove(start, startEnd[0].length());
 				if (startEnd[1]!=null) {
 					int temp = startEnd[1].length();

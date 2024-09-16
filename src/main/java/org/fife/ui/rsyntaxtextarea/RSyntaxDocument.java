@@ -130,6 +130,8 @@ public class RSyntaxDocument extends RDocument implements Iterable<Token>,
 	 */
 	@Override
 	protected void fireInsertUpdate(DocumentEvent e) {
+		// lalit -- hook in the onInsert
+		tokenMaker.onInsert(e);
 
 		cachedTokenList = null;
 
@@ -205,6 +207,8 @@ public class RSyntaxDocument extends RDocument implements Iterable<Token>,
 	 */
 	@Override
 	protected void fireRemoveUpdate(DocumentEvent chng) {
+		// lalit - hook in the onRemove
+		tokenMaker.onRemove(chng);
 
 		cachedTokenList =  null;
 		Element lineMap = getDefaultRootElement();

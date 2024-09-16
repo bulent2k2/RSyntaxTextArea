@@ -10,6 +10,7 @@
 package org.fife.ui.rsyntaxtextarea;
 
 import javax.swing.Action;
+import javax.swing.event.DocumentEvent;
 import javax.swing.text.Segment;
 
 
@@ -166,6 +167,10 @@ public interface TokenMaker {
 	public Token getTokenList(Segment text, int initialTokenType,
 											int startOffset);
 
+
+	// Doc change hooks added by Lalit
+	public void onInsert(DocumentEvent e);
+	public void onRemove(DocumentEvent e);
 
 	/**
 	 * Returns whether a character could be part of an "identifier" token

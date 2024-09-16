@@ -9,6 +9,7 @@
 package org.fife.ui.rsyntaxtextarea;
 
 import javax.swing.Action;
+import javax.swing.event.DocumentEvent;
 import javax.swing.text.Segment;
 
 
@@ -142,6 +143,10 @@ public abstract class TokenMakerBase implements TokenMaker {
 		currentToken.setHyperlink(hyperlink);
 
 	}
+
+	// Doc change hooks added by Lalit
+	public void onInsert(DocumentEvent e) {}
+	public void onRemove(DocumentEvent e) {}
 
 
 	/**

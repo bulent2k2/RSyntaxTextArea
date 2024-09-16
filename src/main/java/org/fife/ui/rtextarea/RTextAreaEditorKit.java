@@ -2037,7 +2037,8 @@ searchOffs = Math.max(lastWordStart - 1, 0);
 				}
 
 			} catch (BadLocationException ble) {
-				ble.printStackTrace();
+				// lalit - suppress message for error that we can't do anything about
+				// ble.printStackTrace();
 			}
 
 		}
